@@ -1,0 +1,52 @@
+<div class="banner">
+    <div class="content">
+        <h1 class="mb-5">Get the lifestyle you deserve, and become a true warrior <br/></h1>
+        <a routerLink="menu">Start your journey <i class="bi bi-arrow-right"></i></a>
+    </div>
+</div>
+<!-- step  -->
+
+<div class="container mt-5 mb-4">
+<h1 class="text-center ">Comment Commencer Votre <span class="highlight">Aventure</span></h1>
+<div class="row mt-5">
+   <!--One-->
+   <div class="col-lg-4 mt-2">
+      <div class="stepbox">
+         <h1>1</h1>
+      <p>Inscrivez-vous sur MuscleMAX</p>
+      </div>
+   </div>
+
+   <!--Two-->
+   <div class="col-lg-4 mt-2">
+      <div class="stepbox">
+         <h1>2</h1>
+      <p>Choisissez votre Option</p>
+   </div>
+      </div>
+
+   <!--Three-->
+   <div class="col-lg-4 mt-2">
+      <div class="stepbox">
+         <h1>3</h1>
+         <p>Commencez votre Entrainement</p>
+      </div>
+      
+   </div>
+
+</div>
+
+<!--Exercices Box-->
+<div class="container mt-4 mb-4">
+   <h1 class="text-center"><span class="highlight">Exercices favoris des athlètes</span></h1>
+   <div class="row">
+       <div class="col-lg-3 mt-3" *ngFor="let ed of exerciceData;index as i">
+           <div class="foodbox">
+               <img src="{{ed.ExrImg}}" />
+               <h3 class="text-center">{{ed.exerName}}</h3>
+            <div class="button>"><a routerLink="#" class="viewmorebtn">voir Details <i class="bi bi-arrow-right"></i></a></div>
+           </div>
+       </div>
+      
+   </div>
+   
