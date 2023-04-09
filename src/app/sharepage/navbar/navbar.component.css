@@ -1,6 +1,6 @@
 .navbar-light .navbar-nav .nav-link
 {
-    color: var(--secondary-color);
+    color: white;
 }
 .navbar-light .navbar-nav .nav-link.active-link
 {
@@ -17,3 +17,8 @@
   color: var(--primary-color);
 }
 
+
+.nav-item {
+   background-color : chocolate;
+   border-radius : 18px;
+}
