@@ -1,5 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +20,20 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { MenupageComponent } from './pages/menupage/menupage.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ApiService } from './pages/login/api.service';
+import { AuthService } from './pages/login/auth.service';
+import { MessagesComponent } from './pages/login/messages.component';
+import { RegisterComponent } from './pages/login/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { UsersComponent } from './pages/login/users.component';
+import { ProfileComponent } from './pages/login/profile.component';
+
+const routes = [
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'users', component: UsersComponent},
+  {path: 'profile/:id', component: ProfileComponent},
+]
 
 @NgModule({
   declarations: [
@@ -23,14 +45,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AboutComponent,
     ContactComponent,
     ProductsComponent,
-    MenupageComponent
+    MenupageComponent,
+    MessagesComponent,
+    RegisterComponent,
+    LoginComponent,
+    UsersComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatToolbarModule,
+    RouterModule.forRoot(routes),
+    MatInputModule,
+    MatListModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ApiService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
