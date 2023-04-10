@@ -21,4 +21,6 @@
 .nav-item {
    background-color : chocolate;
    border-radius : 18px;
+   padding-right : 1.5rem;
+   padding-left : 1.5rem;
 }
