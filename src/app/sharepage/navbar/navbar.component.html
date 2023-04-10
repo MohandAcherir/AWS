@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="">MuscleMax</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav" style="background-color: black;">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" >Home</a>
@@ -22,9 +22,24 @@
             <a class="nav-link" routerLink="contact" routerLinkActive="active-link">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="contact" routerLinkActive="active-link">Login</a>
+            <button mat-button routerLink="/users">Utilisateurs</button>
           </li>
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
+
+
+
+<mat-toolbar id="header" color="primary">
+  <mat-toolbar-row>
+    <button mat-button id="acceuil" routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" >MuscleMax</button>
+    <span></span>
+    <button mat-button class="page" routerLink="/menu" routerLinkActive="active-link" style="margin-left: 40%;">Programmes</button>
+    <span></span>
+    <button mat-button class="page" routerLink="/products" routerLinkActive="active-link">Produits</button>
+    <span></span>
+    <button mat-button class="page" routerLink="/register" routerLinkActive="active-link">S'inscrire</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

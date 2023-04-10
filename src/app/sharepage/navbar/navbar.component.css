@@ -1,6 +1,6 @@
-.navbar-light .navbar-nav .nav-link
+/* .navbar-light .navbar-nav .nav-link
 {
-    color: white;
+    color: black;
 }
 .navbar-light .navbar-nav .nav-link.active-link
 {
@@ -23,4 +23,56 @@
    border-radius : 18px;
    padding-right : 1.5rem;
    padding-left : 1.5rem;
+} */
+
+.page {
+  color: #000;
+  border-radius: 18px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  background-color: chocolate;
+}
+
+.page:hover {
+  animation: surf 1s infinite;
+}
+
+@keyframes surf {
+  0% {
+    background-color: chocolate;
+  }
+
+  50% {
+    background-color: orange;
+  }
+
+  100% {
+    background-color: chocolate;
+  }
+}
+
+span {
+  flex: 1 1 auto
+}
+
+#acceuil { 
+  font-size: 100%;
+}
+
+
+#header{ 
+  top: 0; 
+  height: 7%; 
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  transition: 0.5s;
+  overflow-x: hidden;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
