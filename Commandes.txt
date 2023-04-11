@@ -1,0 +1,9 @@
+Pour build le site:
+
+ng build --prod --configuration production
+
+backend :
+nodemon server.js
+
+frontend
+ng serve

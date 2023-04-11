@@ -29,17 +29,22 @@
     </div>
   </nav> -->
 
-
-
-<mat-toolbar id="header" color="primary">
+<mat-toolbar id="header" style="background-color: gray;">
   <mat-toolbar-row>
-    <button mat-button id="acceuil" routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" >MuscleMax</button>
+    <a id="acceuil" routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" ><img id="logoMuscleMAX" src="../../../assets/img/LOGOMMAX.jpg" /></a>
     <span></span>
-    <button mat-button class="page" routerLink="/menu" routerLinkActive="active-link" style="margin-left: 40%;">Programmes</button>
+    <button mat-button class="page" routerLink="/users" routerLinkActive="active-link" style="margin-left: 12%;">Utilisateurs</button>
+    <span></span>
+    <button mat-button class="page" routerLink="/menu" routerLinkActive="active-link">Programmes</button>
     <span></span>
     <button mat-button class="page" routerLink="/products" routerLinkActive="active-link">Produits</button>
+    <span *ngIf="authService.isAuthenticated"></span>
+    <button mat-button class="page" *ngIf="authService.isAuthenticated" routerLink="/post" routerLinkActive="active-link">Publier</button>
     <span></span>
-    <button mat-button class="page" routerLink="/register" routerLinkActive="active-link">S'inscrire</button>
+    <button mat-button class="page" *ngIf="!authService.isAuthenticated" routerLink="/register" routerLinkActive="active-link">S'inscrire</button>
+    <button mat-button class="page" *ngIf="authService.isAuthenticated" (click)="authService.logout()" routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Se déconnecter</button>
+    <span *ngIf="!authService.isAuthenticated"></span>
+    <button mat-button class="page" *ngIf="!authService.isAuthenticated" routerLink="/login" routerLinkActive="active-link">Se connecter</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>

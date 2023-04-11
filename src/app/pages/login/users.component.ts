@@ -3,7 +3,7 @@ import { OnInit } from '@angular/core';
 import { ApiService } from './api.service';
 
 @Component({
-  selector: 'messages',
+  selector: 'users',
   template: `
             <div *ngFor="let user of apiService.users">
                 <mat-card>

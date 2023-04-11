@@ -9,10 +9,10 @@ router.post("/register", (req, res) => {
 
     var user = new User(userData);
     
-    user.save().then(()=>{
-        res.status(200).json({"message": "User registered"});
+    user.save().then((newUser) => {
+        createSendToken(res, newUser);
     }).catch((err)=>{
-        console.log(err);
+        return res.status(500).send("Erreur lors de l'enregistrement de l'utilisateur")
     })
 })
 
@@ -30,13 +30,34 @@ router.post("/login", async (req, res) => {
             if(!isMatch) {
                 return res.status(401).send({message :'Invalid password'});
             }
-            var payload = { sub: user._id };
-
-            var token = jwt.encode(payload, '123');
-        
-            res.status(200).send({token});
         })
+        createSendToken(res, user);
     });
 })
 
-module.exports = router;
+createSendToken = (res, user) => {
+    var payload = { sub: user._id };
+
+    var token = jwt.encode(payload, '123');
+
+    res.status(200).send({token});
+}
+
+var auth = {
+    router,
+    checkAuthenticated: (req, res, next) => {
+        if (!req.header('Authorization')) {
+            return res.status(401).send({message: 'Unauthorized. Missing Auth Header'});
+        }
+        var token = req.header('Authorization').split(' ')[1]
+    
+        var payload = jwt.decode(token, '123')
+        if (!payload) {
+            return res.status(401).send({message: 'Unauthorized. Auth Header Invalid'});
+        }
+        req.userId = payload.sub
+        next()
+    }
+}
+
+module.exports = auth;

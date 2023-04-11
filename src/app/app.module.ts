@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -27,12 +27,15 @@ import { RegisterComponent } from './pages/login/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UsersComponent } from './pages/login/users.component';
 import { ProfileComponent } from './pages/login/profile.component';
+import { PostComponent } from './pages/login/post.component';
+import { AuthInterceptorService } from './pages/login/authInterceptor.service';
 
 const routes = [
+  {path: 'post', component: PostComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'users', component: UsersComponent},
-  {path: 'profile/:id', component: ProfileComponent},
+  {path: 'profile/:id', component: ProfileComponent}
 ]
 
 @NgModule({
@@ -50,7 +53,8 @@ const routes = [
     RegisterComponent,
     LoginComponent,
     UsersComponent,
-    ProfileComponent
+    ProfileComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,7 @@ const routes = [
     MatListModule,
     BrowserAnimationsModule
   ],
-  providers: [ApiService, AuthService],
+  providers: [ApiService, AuthService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

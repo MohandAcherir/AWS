@@ -31,7 +31,7 @@ i
 }
 
 .annex:hover {
-    animation: surfgreen 1s;
+    animation: surfgreen 0.5s;
     animation-fill-mode: forwards;
 }
 

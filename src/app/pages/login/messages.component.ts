@@ -1,23 +1,24 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { ApiService } from './api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'messages',
   template: `
             <div *ngFor="let message of apiService.messages">
                 <mat-card>
-                    <mat-card-content>{{message.message}}</mat-card-content>
+                    <mat-card-content>{{message.msg}}</mat-card-content>
                 </mat-card>
             </div>
             `
 })
 export class MessagesComponent implements OnInit {
-  title = 'MuscleMAX';
-
-  constructor(public apiService: ApiService) { }
+  constructor(public apiService: ApiService, public route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.apiService.getMessages();
+    var userId = this.route.snapshot.params['id']
+
+    this.apiService.getMessages(userId);
   }
 }

@@ -26,11 +26,12 @@
 } */
 
 .page {
-  color: #000;
+  color: black;
   border-radius: 18px;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
   background-color: chocolate;
+  border: 5px double white;
 }
 
 .page:hover {
@@ -45,17 +46,13 @@
 
   100% {
     background-color: orange;
+    border: 4px double gray;
   }
 }
 
 span {
   flex: 1 1 auto
 }
-
-#acceuil { 
-  font-size: 100%;
-}
-
 
 #header{ 
   top: 0; 
@@ -72,4 +69,32 @@ span {
   text-decoration: none;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
+}
+
+#acceuil { 
+  font-size: 100%;
+  width: 20%;
+  height: 100%;
+}
+
+#logoMuscleMAX {
+  max-width : 100%;
+  min-height: 100%;
+  border-radius: 25px;
+  border: 5px double white;
+}
+
+#logoMuscleMAX:hover {
+  animation: surflogo 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes surflogo {
+  0% {
+    border: 5px double white;
+  }
+
+  100% {
+    border: 2px solid white;
+  }
 }
