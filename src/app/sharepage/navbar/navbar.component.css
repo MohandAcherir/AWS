@@ -24,3 +24,9 @@
    padding-right : 1.5rem;
    padding-left : 1.5rem;
 }
+
+
+.nav-item:hover { 
+   background-color: #c6c6c6;
+   color: #fff;
+}
