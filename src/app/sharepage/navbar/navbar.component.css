@@ -34,7 +34,8 @@
 }
 
 .page:hover {
-  animation: surf 1s infinite;
+  animation: surf 0.5s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes surf {
@@ -42,12 +43,8 @@
     background-color: chocolate;
   }
 
-  50% {
-    background-color: orange;
-  }
-
   100% {
-    background-color: chocolate;
+    background-color: orange;
   }
 }
 
