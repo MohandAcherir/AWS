@@ -100,6 +100,7 @@ p {
   color: #7a7a7a;
 }
 
+
 /* 
 ---------------------------------------------
 global styles
@@ -844,6 +845,15 @@ schedule
     background-repeat: no-repeat;
     background-size: cover;
   }
+#protein{
+  
+    padding: 0px 0px 140px 0px;
+  background-image: url(../images/tester.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
   #Calorie{
     padding: 0px 0px 140px 0px;
     background-image: url(../images/gym.jpg);
