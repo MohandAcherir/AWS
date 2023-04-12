@@ -1,0 +1,46 @@
+<div class="calculator">
+    
+    <form (submit)="calculate()">
+      <div>
+        <label for="gender">Genre:</label>
+        <select id="gender" name="gender" [(ngModel)]="gender" required>
+          <option value="male">Homme</option>
+          <option value="female">Femme</option>
+        </select>
+      </div>
+      <div>
+        <label for="age">Âge:</label>
+        <input type="number" id="age" name="age" [(ngModel)]="age" required>
+      </div>
+      <div>
+        <label for="weight">Poids (en kg):</label>
+        <input type="number" id="weight" name="weight" [(ngModel)]="weight" required>
+      </div>
+      <div>
+        <label for="height">Taille (en cm):</label>
+        <input type="number" id="height" name="height" [(ngModel)]="height" required>
+      </div>
+      <div>
+        <label for="activity">Niveau d'activité:</label>
+        <select id="activity" name="activity" [(ngModel)]="activity" required>
+          <option value="sedentary">Sédentaire</option>
+          <option value="lightly-active">Légèrement actif</option>
+          <option value="moderately-active">Modérément actif</option>
+          <option value="very-active">Très actif</option>
+          <option value="extremely-active">Extrêmement actif</option>
+        </select>
+      </div>
+      <button type="submit">Calculer</button>
+    </form>
+    <div id="results" *ngIf="showResults">
+       <div class="resultColor"> <h3>Résultats</h3></div>
+       <br>
+        <ul>
+          <li>Besoins en:</li>
+           <li>Calories : {{tdee}}</li>
+          <li>Protéines : {{protein}}g</li>
+          <li>Lipides : {{fat}}g</li>
+          <li>Glucides : {{carbs}}g</li>
+        </ul>
+      </div>
+  
