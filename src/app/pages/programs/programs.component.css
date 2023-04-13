@@ -1,0 +1,82 @@
+.banner
+{
+    background-image: url('../../../assets/img/img1.jpg');
+    height: 700px;
+    background-position: center top;
+    background-size: cover;
+}
+
+.content
+{
+    top: 19%;
+    left: 20%;
+    position: absolute;
+}
+.content h1 
+{
+    color: #dce0ec;
+    font-size: 70px;
+    font-weight: lighter;
+  
+}
+
+.content h2 
+{
+    color: #dce0ec;
+    font-size: 40px;
+    font-weight: lighter;
+  
+}
+
+
+.styled1 {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 200px;
+    font-size: 3rem;
+    text-align: center;
+    color: #dce0ec;
+    border-radius: 0px;
+    background-color: transparent;
+}
+
+.styled2	 {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 187px;
+    font-size: 3rem;
+    text-align: center;
+    color: #dce0ec;
+    border-radius: 0px;
+    background-color: transparent;
+}
+
+.styled3 {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 175px;
+    font-size: 3rem;
+    text-align: center;
+    color: #dce0ec;
+    border-radius: 0px;
+    background-color: transparent;
+}
+.styled1:hover {
+    background-color: #ea863f5e;
+}
+.styled2:hover {
+    background-color: #ea863f5e;
+}
+.styled3:hover {
+    background-color: #ea863f5e;
+}
+
+.styled1:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+.styled2:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+.styled3:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}

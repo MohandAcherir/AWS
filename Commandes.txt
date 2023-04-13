@@ -1,0 +1,18 @@
+Pour build le site:
+
+ng build --prod --configuration production
+
+backend :
+nodemon server.js
+
+frontend :
+ng serve
+
+
+heroku (pour le backend) :
+https://radiant-waters-79670.herokuapp.com/
+https://git.heroku.com/radiant-waters-79670.git
+
+
+heroku (deploy app for NodeJS) :
+https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app

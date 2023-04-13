@@ -25,11 +25,23 @@ a
     padding: 0px 10px;
     font-size: 17px;
 }
-a:hover 
-{
-    color: var(--primary-color);
-}
 i 
 {
     padding: 0px 10px;
+}
+
+.annex:hover {
+    animation: surfgreen 0.5s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes surfgreen {
+    0% {
+        color: #fff;
+    }
+    
+    100% {
+        color: var(--primary-color);
+    }
 }

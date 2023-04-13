@@ -1,15 +1,15 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Carousel01Component } from 'src/app/services/carousel06.service';
+import { ExerciceDetailsService } from 'src/app/services/exercice-details.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private pictures:Carousel01Component){}
-  slides:any;
+  constructor(private service:ExerciceDetailsService){}
+  exerciceData:any;
   ngOnInit(): void {
-    this.slides=this.pictures.slides;
+    this.exerciceData=this.service.exerciceDetails;
   }
 }
