@@ -5,6 +5,14 @@
     background-position: center top;
     background-size: cover;
 }
+
+.banner2
+{
+    background-color: #6a6666;
+    height: 600px;
+    background-position: center top;
+    background-size: cover;
+}
 .content
 {
     top: 30%;
@@ -17,6 +25,22 @@
     font-size: 70px;
     font-weight: lighter;
   
+}
+
+h2
+{
+    color: white;
+    font-size: 50px;
+    font-weight: lighter;
+    text-align: center;
+}
+
+h4
+{
+    color: white;
+    font-size: 15px;
+    font-weight: lighter;
+    text-align: center;
 }
 .content a 
 {
