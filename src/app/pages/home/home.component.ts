@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciceDetailsService } from 'src/app/services/exercice-details.service';
 import { CalorieCalculComponent } from 'src/app/services/calorie-calcul.component';
+import { AuthService } from 'src/app/pages/login/auth.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,7 +22,7 @@ export class HomeComponent implements OnInit {
   carbs: number = 0;
   showResults: boolean = true; // Define the showResults property
  
-  constructor(private service:CalorieCalculComponent){
+  constructor(public authService: AuthService, private service:CalorieCalculComponent){
       this.weight = this.service.weight;
     this.height = this.service.height;
     this.age = this.service.age;

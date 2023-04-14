@@ -5,47 +5,68 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <form>
-            <mat-form-field>
-                <mat-label>Votre adresse courriel</mat-label>
-                <input [(ngModel)]="registerData.email" name="email" matInput placeholder="Adresse courriel" type="email">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Votre mot de passe</mat-label>
-                <input [(ngModel)]="registerData.pwd" name="password" matInput placeholder="Mot de passe" type="password">
-            </mat-form-field>
-            <br>
-            <mat-form-field>
-                <mat-label>Votre nom</mat-label>
-                <input [(ngModel)]="registerData.name" name="name" matInput placeholder="Nom">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Votre prénom</mat-label>
-                <input [(ngModel)]="registerData.prenom" name="prenom" matInput placeholder="Prénom">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Votre date de naissance</mat-label>
-                <input [(ngModel)]="registerData.dateDeNaissance" name="dateDeNaissance" matInput placeholder="Date de naissance">
-            </mat-form-field>
-            <br>
-            <mat-form-field>
-                <mat-label>Votre taille</mat-label>
-                <input [(ngModel)]="registerData.taille" name="taille" matInput placeholder="Mesure du corps">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Votre poids</mat-label>
-                <input [(ngModel)]="registerData.poids" name="poids" matInput placeholder="Poids (en kg)">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Votre genre</mat-label>
-                <input [(ngModel)]="registerData.sexe" name="sexe" matInput placeholder="Homme ou femme">
-            </mat-form-field>
-            <mat-form-field style="width: 100%">
-                <mat-label>Décrivez-vous</mat-label>
-                <textarea [(ngModel)]="registerData.description" name="description" matInput placeholder="Description"></textarea>
-            </mat-form-field>
-            <br>
-            <button (click)="post()" mat-raised-button color="primary">Valider</button>
-        </form>
+        <mat-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Votre compte</ng-template>
+                <mat-form-field appearance="fill">
+                    <mat-label>Votre adresse courriel</mat-label>
+                    <input [(ngModel)]="registerData.email" name="email" matInput placeholder="Adresse courriel" type="email">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Votre mot de passe</mat-label>
+                    <input [(ngModel)]="registerData.pwd" name="password" matInput placeholder="Mot de passe" type="password">
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperNext>Suivant</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" label="Vos données personnelles">
+              <form [formGroup]="secondFormGroup">
+                <mat-form-field appearance="fill">
+                    <mat-label>Votre nom</mat-label>
+                    <input [(ngModel)]="registerData.name" name="name" matInput placeholder="Nom">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Votre prénom</mat-label>
+                    <input [(ngModel)]="registerData.prenom" name="prenom" matInput placeholder="Prénom">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Votre date de naissance</mat-label>
+                    <input [(ngModel)]="registerData.dateDeNaissance" name="dateDeNaissance" matInput placeholder="Date de naissance">
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Retour</button>
+                  <button mat-button matStepperNext>Suivant</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Votre corps</ng-template>
+                <form>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Votre taille</mat-label>
+                        <input [(ngModel)]="registerData.taille" name="taille" matInput placeholder="Mesure du corps">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Votre poids</mat-label>
+                        <input [(ngModel)]="registerData.poids" name="poids" matInput placeholder="Poids (en kg)">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Votre genre</mat-label>
+                        <input [(ngModel)]="registerData.sexe" name="sexe" matInput placeholder="Homme ou femme">
+                    </mat-form-field>
+                    <mat-form-field style="width: 100%" appearance="fill">
+                        <mat-label>Décrivez-vous</mat-label>
+                        <textarea [(ngModel)]="registerData.description" name="description" matInput placeholder="Description"></textarea>
+                    </mat-form-field>
+                </form>
+              <div>
+                <button mat-button matStepperPrevious>Retour</button>
+                <button (click)="post()" routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" mat-raised-button color="primary">Valider</button>
+              </div>
+            </mat-step>
+          </mat-stepper>
     </mat-card-content>
 </mat-card>

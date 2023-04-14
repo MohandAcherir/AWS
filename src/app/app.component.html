@@ -1,7 +1,64 @@
-<!-- navbar  -->
-<app-navbar></app-navbar>
+<!-- ***** Preloader Start ***** -->
+<div id="js-preloader" class="js-preloader">
+  <div class="preloader-inner">
+    <span class="dot"></span>
+    <div class="dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">Muscle<em>MAX</em></a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" class="active">Acceuil</a></li>
+                        <!-- <li class="scroll-to-section"><a href="#features">A propos de nous</a></li> -->
+                        <li class="scroll-to-section"><a routerLink="/articles" routerLinkActive="active-link">Articles Scientifiques</a></li>
+                        <li class="scroll-to-section"><a routerLink="/products" routerLinkActive="active-link">Produits Alimentaire</a></li>
+                        <li class="scroll-to-section"><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li> 
+                        <li *ngIf="authService.isAuthenticated" class="scroll-to-section"><a (click)="deconnexion()" routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Se déconnecter</a></li> 
+                        <li *ngIf="!authService.isAuthenticated" class="main-button"><a routerLink="/login" routerLinkActive="active-link">Se connecter</a></li>
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
 
 <router-outlet></router-outlet>
 
-<!-- footer  -->
-<app-footer></app-footer>
+<!-- ***** Footer Start ***** -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; 2023 FTSM 
+                ,
+           
+            Distribué par <a rel="nofollow" href="https://www.uvsq.fr" class="tm-text-link" target="_blank">UVSQ</a>
+            
+            </p>
+                
+               
+                
+            </div>
+        </div>
+    </div>
+</footer>
