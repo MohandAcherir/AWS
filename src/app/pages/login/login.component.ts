@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ApiService } from './api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
   template: `
-    <mat-card>
+    <mat-card style="z-index:1;">
         <mat-card-header>
             <mat-card-title>
                 <h1> </h1>
@@ -15,8 +17,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
             <mat-card-title>
                 <h1>Connexion</h1>
             </mat-card-title>
-            </mat-card-header>
-
+        </mat-card-header>
 
         <mat-accordion>
             <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
@@ -54,13 +55,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
               Vous n'avez pas de compte ?
             </mat-panel-title>
             <mat-panel-description>
-              Créer vous un compte
+              Créez-vous un compte
             </mat-panel-description>
           </mat-expansion-panel-header>
           <register></register>
         </mat-expansion-panel>
       </mat-accordion>
     </mat-card>
+    
+    <video onloadedmetadata="this.muted = true" autoplay muted loop id="videoFond">
+        <source src="../../../assets/images/FondCommentairesCrossfit.mp4" type="video/mp4" />
+    </video>
 `,
 styleUrls: ['./login.component.css']
 })
@@ -69,10 +74,15 @@ export class LoginComponent {
     loginData: any = {}
     panelOpenState = false;
     
-    constructor(public authService: AuthService, private _snackBar: MatSnackBar) {}
+    constructor(public apiService: ApiService, public authService: AuthService, private _snackBar: MatSnackBar,
+        private _router: Router) {}
 
     post() {
         this.authService.loginUser(this.loginData);
-        this._snackBar.open("Bonjour "+ this.loginData.email +", ravi de vous revoir.", "Fermer");
+        this.apiService.getProfileByEmail(this.loginData.email).subscribe((data: any) => {
+            console.log(data[0])
+            this._snackBar.open("Bonjour "+ data[0].prenom +", ravi de vous revoir.", "Fermer");
+            this._router.navigate(['']);
+        });
     }
 }

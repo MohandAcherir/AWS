@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+.message {
+    border-radius: 50px;
+    margin: 0 15px 20px;
+    padding: 10px 20px;
+    position: relative;
+    font-size: 20px;
+  }
+  .float-right{
+    color:orange;
+    margin-right: 10px;
+    font-size: 20px;
+  }
+
+  .message.to {
+    background-color: #2095FE;
+    color: #fff;
+    margin-left: 100px;
+    text-align: right;
+  }
+
+  .proposition {
+    background-color: gray;
+    color: #fff;
+    margin-left: 100px;
+    text-align: right;
+    border-radius: 50px;
+    margin: 0 15px 20px;
+    padding: 10px 20px;
+    position: relative;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .proposition:hover {
+    background-color: rgb(52, 40, 121);
+  }
+
+  .message.from {
+    background-color: #E5E4E9;
+    color: #363636;
+    margin-right: 100px;
+    margin-top: -10px;
+  }
+  .message.to + .message.to,
+  .message.from + .message.from {
+    margin-top: -10px;
+}
+
+.button {
+    margin-left: 20px;
+    display: inline-block;
+    position: relative;
+    padding: 0 30px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #4285f4;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .button:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+#ChatBot {
+  position: fixed;
+  top: 20%;
+  right: 4em;
+  max-height: 60%;
+  max-width: 40%;
+  min-height: 60%;
+  min-width: 40%;
+  background-color : #E6EFFD;
+  border-top: solid black 1px;
+  padding: 5px;
+  padding-left: 5px;
+  padding-top: 0;
+  color: white;
+  box-shadow: 1px 10px 12px #000000;
+  zoom: 50%;
+  overflow: auto;
+}
+  

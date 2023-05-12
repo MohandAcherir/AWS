@@ -72,6 +72,7 @@ header, nav, section, article, aside, footer, hgroup {
 }
 
 html, body {
+  cursor: url("../images/tabs-first-icon.png"), auto;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   background-color: #fff;
@@ -844,6 +845,13 @@ schedule
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  #ChatBot{
+  padding: 0px 0px 140px 0px;
+  background-image: url(../images/contact-bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   }
 #protein{
   

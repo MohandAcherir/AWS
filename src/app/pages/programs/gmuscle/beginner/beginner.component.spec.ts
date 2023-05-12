@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LwightComponent } from './lweight.component';
+import { LweightComponent } from './lweight.component.ts';
 
 describe('LweightComponent', () => {
   let component: LweightComponent;

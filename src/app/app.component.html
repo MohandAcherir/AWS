@@ -11,7 +11,6 @@
 </div>
 <!-- ***** Preloader End ***** -->
 
-
 <!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky">
     <div class="container">
@@ -23,11 +22,13 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li class="scroll-to-section"><a routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" class="active">Acceuil</a></li>
+                        <li class="scroll-to-section"><a routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" class="active">Accueil</a></li>
                         <!-- <li class="scroll-to-section"><a href="#features">A propos de nous</a></li> -->
                         <li class="scroll-to-section"><a routerLink="/articles" routerLinkActive="active-link">Articles Scientifiques</a></li>
-                        <li class="scroll-to-section"><a routerLink="/products" routerLinkActive="active-link">Produits Alimentaire</a></li>
-                        <li class="scroll-to-section"><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li> 
+                        <!-- <li class="scroll-to-section"><a routerLink="/todolist" routerLinkActive="active-link">Todolist</a></li> -->
+                        <li class="scroll-to-section"><a routerLink="/products" routerLinkActive="active-link">Produits Alimentaires</a></li>
+
+                        <li class="scroll-to-section"><a routerLink="/programs" routerLinkActive="active-link">Contact</a></li> 
                         <li *ngIf="authService.isAuthenticated" class="scroll-to-section"><a (click)="deconnexion()" routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Se déconnecter</a></li> 
                         <li *ngIf="!authService.isAuthenticated" class="main-button"><a routerLink="/login" routerLinkActive="active-link">Se connecter</a></li>
                     </ul>        
@@ -43,6 +44,8 @@
 <!-- ***** Header Area End ***** -->
 
 <router-outlet></router-outlet>
+
+<chat-button></chat-button>
 
 <!-- ***** Footer Start ***** -->
 <footer>

@@ -1,0 +1,49 @@
+<section class="section" id="ChatBot">
+  <div class="container">
+    <div class="row">
+      <video onloadedmetadata="this.muted = true" autoplay muted loop id="bg-video">
+        <source src="../assets/images/gym-video.mp4" type="video/mp4" />
+    
+      </video>
+      
+      <div class="video-overlay header-text">
+        <div class="caption">
+        <div class="section-heading dark-bg">
+          <h2><b>Chat<em>Bot</em></b></h2>
+          <img style="margin-bottom:100px;" src="assets/images/line-dec.png" alt="waves">
+
+          <ng-container *ngFor="let message of messages">
+            <div class="message" [ngClass]="{from: message.author === 'bot',to: message.author === 'user'}">
+              {{ message.content }}
+            </div>
+          </ng-container>
+          
+          <br><br>
+
+          <label *ngIf="messages.length > -1; else dialogInfo" for="nameField"></label>
+          <input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" style="width:50%; font-size:20px;" />
+
+          <button class ="button"(click)="sendMessage()">
+            Envoyer
+          </button>
+
+          <br><br>
+
+          <ng-container *ngFor="let message of propositions">
+            <div class="proposition" (click)="sendProposition(message)">
+              {{ message }}
+            </div>
+          </ng-container>
+
+          <ng-template #dialogInfo>
+            <span [className]="'float-right'">
+              <!-- Total messages : {{ messages.length }} -->
+            </span>
+          </ng-template>
+          </div>
+          </div>
+
+        </div>
+    </div>
+  </div>
+</section>

@@ -37,6 +37,8 @@
     <span></span>
     <button mat-button class="page" routerLink="/programs" routerLinkActive="active-link">Programmes</button>
     <span></span>
+    <button mat-button class="page" routerLink="/todolist" routerLinkActive="active-link">todolist</button>
+    <span></span>
     <button mat-button class="page" routerLink="/products" routerLinkActive="active-link">Produits</button>
     <span *ngIf="authService.isAuthenticated"></span>
     <button mat-button class="page" *ngIf="authService.isAuthenticated" routerLink="/post" routerLinkActive="active-link">Publier</button>

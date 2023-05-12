@@ -1,0 +1,26 @@
+<h1>Réseaux Sociaux</h1>
+<div class="card">
+    <div class="card-head">Réseaux Sociaux</div>
+    <div class="card-body">
+Les salles de sport font partie des commerces de proximité ayant tout intérêt à développer une stratégie de communication sur des réseaux tels que Facebook, Twitter, Instagram ou encore Youtube, et cela afin de rester en contact avec leurs adhérents, tout en cherchant à profiter des leviers de bouche à oreille pour attirer de nouveaux clients.
+</div>
+</div>
+
+<div class="carousel" >
+    <ng-container *ngFor="let slide of slides; let i = index">
+      <img
+      *ngIf="i === currentSlide"
+        [src]="slide.src"
+        class="slide"
+      />
+    </ng-container>
+  
+    <!-- controls -->
+    <button class="control prev" (click)="onPreviousClick()">
+      <span class="arrow left"></span>
+    </button>
+    
+  </div>
+  
+ 
+ 

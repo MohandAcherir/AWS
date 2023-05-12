@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   showResults: boolean = true; // Define the showResults property
  
   constructor(public authService: AuthService, private service:CalorieCalculComponent){
-      this.weight = this.service.weight;
+    this.weight = this.service.weight;
     this.height = this.service.height;
     this.age = this.service.age;
     this.gender = this.service.gender;

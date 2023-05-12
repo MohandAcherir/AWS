@@ -25,13 +25,19 @@ export class AuthService {
     localStorage.removeItem(this.TOKEN_KEY)
   }
 
+  getUserId() {
+    return this.http.get(this.path + '/userId', {
+      headers: { Authorization: ` ${this.token}` }
+    });
+  }
+
   registerUser(registerData: any) {
     this.http.post<any>(this.path + '/register', registerData).subscribe((res: any) => {
       this.saveToken(res.token)
     });
   }
 
-  loginUser(loginData: any) {
+  loginUser(loginData: any){
     this.http.post<any>(this.path + '/login', loginData).subscribe((res: any) => {
       this.saveToken(res.token)
     });

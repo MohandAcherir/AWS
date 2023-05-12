@@ -1,0 +1,15 @@
+.task-name {
+    color: orange;
+    margin-bottom: 15px;
+    font-size :20px;
+    font-weight: bolder;
+}
+
+.champs{
+    color:#fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size:17px;
+    font-weight: bolder;
+
+}

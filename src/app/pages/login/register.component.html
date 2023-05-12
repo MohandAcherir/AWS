@@ -5,68 +5,188 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <mat-stepper [linear]="isLinear" #stepper>
-            <mat-step [stepControl]="firstFormGroup">
-              <form [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>Votre compte</ng-template>
+        
+              <form>
+                <br>
+                <h1 style="text-align:center;">Vos données de compte</h1>
+                <div style="text-align:center;">
                 <mat-form-field appearance="fill">
                     <mat-label>Votre adresse courriel</mat-label>
-                    <input [(ngModel)]="registerData.email" name="email" matInput placeholder="Adresse courriel" type="email">
+                    <input type="email" required [(ngModel)]="registerData.email" name="email" matInput placeholder="Adresse courriel">
                 </mat-form-field>
-                <mat-form-field appearance="fill">
+
+                <mat-form-field style="margin-left:3%; "appearance="fill">
                     <mat-label>Votre mot de passe</mat-label>
-                    <input [(ngModel)]="registerData.pwd" name="password" matInput placeholder="Mot de passe" type="password">
+                    <input required [(ngModel)]="registerData.pwd" name="password" matInput placeholder="Mot de passe" type="password"
+                    [type]="hide ? 'password' : 'text'">
+                    <mat-icon style="cursor:pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </mat-form-field>
-                <div>
-                  <button mat-button matStepperNext>Suivant</button>
                 </div>
-              </form>
-            </mat-step>
-            <mat-step [stepControl]="secondFormGroup" label="Vos données personnelles">
-              <form [formGroup]="secondFormGroup">
+
+                <span *ngIf="!this.validateEmail || !this.validatePwd"><br></span>
+                <span style="color:red;" *ngIf="!this.validateEmail">Ceci n'est pas une adresse courriel correcte !</span>
+                <span *ngIf="!this.validateEmail && !this.validatePwd"><br><br></span>
+                <div style="color:red;" *ngIf="!this.validatePwd">Ceci n'est pas un mot de passe correcte ! <br>
+                  Il doit être constitué d'au moins :
+                  <ul style="margin-left:2%;">
+                    <li>- 8 caractères.</li>
+                    <li>- une lettre majuscule.</li>
+                    <li>- une lettre minuscule.</li>
+                    <li>- un caractère spécial.</li>
+                  </ul>
+                </div>
+                <br><br>
+
+                <div style="text-align:center;">
+                <h1>Vos informations personnelles</h1>
                 <mat-form-field appearance="fill">
                     <mat-label>Votre nom</mat-label>
-                    <input [(ngModel)]="registerData.name" name="name" matInput placeholder="Nom">
+                    <input required [(ngModel)]="registerData.name" name="name" matInput placeholder="Nom">
                 </mat-form-field>
-                <mat-form-field appearance="fill">
+
+                <mat-form-field style="margin-left:3%;" appearance="fill">
                     <mat-label>Votre prénom</mat-label>
-                    <input [(ngModel)]="registerData.prenom" name="prenom" matInput placeholder="Prénom">
+                    <input required [(ngModel)]="registerData.prenom" name="prenom" matInput placeholder="Prénom">
                 </mat-form-field>
-                <mat-form-field appearance="fill">
-                    <mat-label>Votre date de naissance</mat-label>
-                    <input [(ngModel)]="registerData.dateDeNaissance" name="dateDeNaissance" matInput placeholder="Date de naissance">
-                </mat-form-field>
-                <div>
-                  <button mat-button matStepperPrevious>Retour</button>
-                  <button mat-button matStepperNext>Suivant</button>
                 </div>
+
+                <span style="color:red;" *ngIf="!this.validateName"><br>Ceci n'est pas un nom de famille !<br></span>
+                <span style="color:red;" *ngIf="!this.validatePrenom"><br>Ceci n'est pas un prénom !<br></span>
+                  
+                <br>
+                <div style="text-align:center;">
+                <mat-form-field appearance="fill">
+                  <mat-label>Votre date de naissance</mat-label>
+                  <input matInput readonly [matDatepicker]="picker" [(ngModel)]="registerData.dateDeNaissance" name="dateDeNaissance" placeholder="Appuyez sur l'icône">
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                </div>
+                <br>
+                <mat-form-field style="width: 100%" appearance="fill">
+                    <mat-label>Décrivez-vous</mat-label>
+                    <textarea required [(ngModel)]="registerData.description" name="description" matInput placeholder="Description"></textarea>
+                </mat-form-field>
               </form>
-            </mat-step>
-            <mat-step>
-              <ng-template matStepLabel>Votre corps</ng-template>
-                <form>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Votre taille</mat-label>
-                        <input [(ngModel)]="registerData.taille" name="taille" matInput placeholder="Mesure du corps">
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Votre poids</mat-label>
-                        <input [(ngModel)]="registerData.poids" name="poids" matInput placeholder="Poids (en kg)">
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Votre genre</mat-label>
-                        <input [(ngModel)]="registerData.sexe" name="sexe" matInput placeholder="Homme ou femme">
-                    </mat-form-field>
-                    <mat-form-field style="width: 100%" appearance="fill">
-                        <mat-label>Décrivez-vous</mat-label>
-                        <textarea [(ngModel)]="registerData.description" name="description" matInput placeholder="Description"></textarea>
-                    </mat-form-field>
-                </form>
-              <div>
-                <button mat-button matStepperPrevious>Retour</button>
-                <button (click)="post()" routerLink=""  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" mat-raised-button color="primary">Valider</button>
+
+                <br><br>
+                <h1 style="text-align:center;">Vos informations corporelles</h1>
+                    <mat-label style="font-size:16px;">Votre genre <em>(facultatif)</em> :</mat-label>
+                    <br>
+                    <mat-radio-group required [(ngModel)]="registerData.sexe" style="margin-left:30%;">
+                      <mat-radio-button class="example-radio-button" *ngFor="let sexe of sexes" [value]="sexe" style="margin-left:5%;">
+                        {{sexe}}
+                      </mat-radio-button>
+                    </mat-radio-group>
+                    <br>
+                    <br>
+                    <mat-label style="font-size:16px;">Votre poids <em>(en kilogrammes)</em> : <b>{{registerData.poids}} kg</b></mat-label>
+                    <br>
+                    <mat-slider min="30" max="140" step="0.1" showTickMarks discrete [displayWith]="formatPoids" style="width: 800px; margin-left:10%;">
+                      <input required matSliderThumb [(ngModel)]="registerData.poids">
+                    </mat-slider>
+                    <br>
+                    <br>
+
+
+                    <mat-label style="font-size:16px;">Votre taille <em>(en centimètres)</em> : <b>{{registerData.taille}} cm</b></mat-label>
+                    <br>
+                    <mat-slider min="100" max="230" step="0.5" showTickMarks discrete [displayWith]="formatTaille" style="width: 800px; margin-left:10%;">
+                      <input required  matSliderThumb [(ngModel)]="registerData.taille">
+                    </mat-slider>
+              <div style="margin-top:2%;">
+                <span style="color:red;" *ngIf="!this.apiService.uniqueEmail"><br>Un compte est déjà associé à l'adresse courriel renseignée !<br><br></span>
+                <button (click)="post()" mat-raised-button color="primary">Valider</button>
               </div>
-            </mat-step>
-          </mat-stepper>
     </mat-card-content>
 </mat-card>
+
+
+
+
+
+<!-- <form>
+  <br>
+
+  <mat-form-field appearance="fill">
+      <mat-label>Votre adresse courriel</mat-label>
+      <input type="email" required [(ngModel)]="registerData.email" name="email" matInput placeholder="Adresse courriel">
+  </mat-form-field>
+
+  <mat-form-field style="margin-left:3%; "appearance="fill">
+      <mat-label>Votre mot de passe</mat-label>
+      <input required [(ngModel)]="registerData.pwd" name="password" matInput placeholder="Mot de passe" type="password"
+      [type]="hide ? 'password' : 'text'">
+      <mat-icon style="cursor:pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+
+  <span *ngIf="!this.validateEmail || !this.validatePwd"><br></span>
+  <span style="color:red;" *ngIf="!this.validateEmail">Ceci n'est pas une adresse courriel correcte !</span>
+  <span *ngIf="!this.validateEmail && !this.validatePwd"><br><br></span>
+  <div style="color:red;" *ngIf="!this.validatePwd">Ceci n'est pas un mot de passe correcte ! <br>
+    Il doit être constitué d'au moins :
+    <ul style="margin-left:2%;">
+      <li>- 8 caractères.</li>
+      <li>- une lettre majuscule.</li>
+      <li>- une lettre minuscule.</li>
+      <li>- un caractère spécial.</li>
+    </ul>
+  </div>
+  <br>
+
+  <mat-form-field appearance="fill">
+      <mat-label>Votre nom</mat-label>
+      <input required [(ngModel)]="registerData.name" name="name" matInput placeholder="Nom">
+  </mat-form-field>
+
+  <mat-form-field style="margin-left:3%;" appearance="fill">
+      <mat-label>Votre prénom</mat-label>
+      <input required [(ngModel)]="registerData.prenom" name="prenom" matInput placeholder="Prénom">
+  </mat-form-field>
+
+  <span style="color:red;" *ngIf="!this.validateName"><br>Ceci n'est pas un nom de famille !<br></span>
+  <span style="color:red;" *ngIf="!this.validatePrenom"><br>Ceci n'est pas un prénom !<br></span>
+    
+  <br>
+  <mat-form-field appearance="fill" style="margin-left:10%;">
+    <mat-label>Votre date de naissance</mat-label>
+    <input matInput readonly [matDatepicker]="picker" [(ngModel)]="registerData.dateDeNaissance" name="dateDeNaissance" placeholder="Appuyez sur l'icône">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <br>
+  <mat-form-field style="width: 100%" appearance="fill">
+      <mat-label>Décrivez-vous</mat-label>
+      <textarea required [(ngModel)]="registerData.description" name="description" matInput placeholder="Description"></textarea>
+  </mat-form-field>
+</form>
+
+  <br>
+
+      <mat-label style="font-size:16px;">Votre genre :</mat-label>
+      <br>
+      <mat-radio-group required [(ngModel)]="registerData.sexe" style="margin-left:30%;">
+        <mat-radio-button class="example-radio-button" *ngFor="let sexe of sexes" [value]="sexe" style="margin-left:5%;">
+          {{sexe}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <br>
+      <br>
+      <mat-label style="font-size:16px;">Votre poids <em>(en centimètres)</em> : <b>{{registerData.poids}} kg</b></mat-label>
+      <br>
+      <mat-slider min="30" max="140" step="0.1" showTickMarks discrete [displayWith]="formatPoids" style="width: 800px; margin-left:10%;">
+        <input required matSliderThumb [(ngModel)]="registerData.poids">
+      </mat-slider>
+      <br>
+      <br>
+
+
+      <mat-label style="font-size:16px;">Votre taille <em>(en centimètres)</em> : <b>{{registerData.taille}} cm</b></mat-label>
+      <br>
+      <mat-slider min="100" max="230" step="0.5" showTickMarks discrete [displayWith]="formatTaille" style="width: 800px; margin-left:10%;">
+        <input required  matSliderThumb [(ngModel)]="registerData.taille">
+      </mat-slider>
+<div style="margin-top:2%;">
+  <button (click)="post()" mat-raised-button color="primary">Valider</button>
+</div> -->

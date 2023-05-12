@@ -1,0 +1,51 @@
+
+<section class="section" id="ChatBot">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="section-heading dark-bg">
+          <h2>ToDo <em>liste</em></h2>
+          <img src="assets/images/line-dec.png" alt="waves">
+
+          <div class="container">
+  
+            <form (ngSubmit)="onSubmit(taskName.value, category.value, dueDate.value)">
+              <div class="form-group">
+                <label for="taskName" class="task-name">Nom de la tâche:</label>
+                <input type="text" class="form-control" id="taskName" #taskName required>
+              </div>
+              <div class="form-group">
+                <label for="category"class="champs">Catégorie:</label>
+                <select class="form-control" id="category" #category required>
+                  <option value="">--Choisissez une catégorie--</option>
+                  <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="dueDate"class="champs">Date d'échéance:</label>
+                <input type="date" class="form-control" id="dueDate" #dueDate required>
+              </div>
+              <button type="submit" class="btn btn-primary">Ajouter la tâche</button>
+              
+            </form>
+            
+            <ul class="list-group mt-4">
+              <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let task of tasks; let i=index">
+                <div>
+                  {{ task.name }} ({{ task.category }}) - {{ task.dueDate | date:'dd/MM/yyyy' }}
+                </div>
+                <button class="btn btn-danger" (click)="removeTask(i)">Delete
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+          
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+.chatbotbutton { 
+  bottom: 2.5em;
+  right: 3.95em;
+  height: 60px; 
+  position : fixed;
+  width: 60px;
+  -webkit-filter: drop-shadow(5px 5px 5px black);
+  filter: drop-shadow(5px 5px 5px black)
+}

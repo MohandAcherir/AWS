@@ -1,0 +1,9 @@
+<div *ngIf="open">
+  <app-angular-bot></app-angular-bot>
+  <img class="chatbotbutton" src="assets/images/fermer.png" (click)="open = !open" style="cursor:pointer;">
+</div>
+
+
+<div *ngIf="!open">
+  <img class="chatbotbutton" src="assets/images/chatbot2.png" (click)="open = !open" style="cursor:pointer;">
+</div>

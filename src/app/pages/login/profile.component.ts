@@ -17,7 +17,7 @@ import { ActivatedRoute } from '@angular/router';
                 <mat-list-item><b>Nom</b>: {{profile?.name}}</mat-list-item>
                 <mat-list-item><b>Prénom</b>: {{profile?.prenom}}</mat-list-item>
                 <mat-list-item><b>Adresse courriel</b>: {{profile?.email}}</mat-list-item>
-                <mat-list-item><b>Date de naissance</b>: {{profile?.dateDeNaissance}}</mat-list-item>
+                <mat-list-item><b>Date de naissance</b>: {{profile?.dateDeNaissance.substring(0, 10)}}</mat-list-item>
                 <mat-list-item><b>Taille</b>: {{profile?.taille}}</mat-list-item>
                 <mat-list-item><b>Poids</b>: {{profile?.poids}}</mat-list-item>
                 <mat-list-item><b>Sexe</b>: {{profile?.sexe}}</mat-list-item>
@@ -45,5 +45,7 @@ export class ProfileComponent implements OnInit {
     ngOnInit() {
         var id = this.route.snapshot.params['id']
         this.apiService.getProfile(id).subscribe((data: any) => this.profile = data);
+
+        console.log(this.profile)
     }
 }
