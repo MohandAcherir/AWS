@@ -1,6 +1,6 @@
 .banner
 {
-    background-image: url('../../../assets/img/img1.jpg');
+    background-image: url('../../../../../assets/images/schedule-bg.jpg');
     height: 700px;
     background-position: center top;
     background-size: cover;
@@ -27,13 +27,20 @@
     font-weight: lighter;
   
 }
+.content h3 
+{
+    color: #dce0ec;
+    font-size: 30px;
+    font-weight: lighter;
+  
+}
 
 
 .styled1 {
     position: relative;
     border: 0;
     line-height: 2.5;
-    padding: 0 92.2px;
+    padding: 0 126px;
     font-size: 2.5rem;
     text-align: center;
     color: #dce0ec;
@@ -61,7 +68,7 @@
     position: relative;
     border: 0;
     line-height: 2.5;
-    padding: 0 81.4px;
+    padding: 0 161.8px;
     font-size: 2.5rem;
     text-align: center;
     color: #dce0ec;

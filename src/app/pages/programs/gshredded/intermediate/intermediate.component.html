@@ -1,0 +1,101 @@
+<div class="banner">
+	<c-carousel>
+  		<c-carousel-indicators></c-carousel-indicators>
+  		<c-carousel-inner>
+    			<c-carousel-item *ngFor="let slide of slides">
+    		      		<img
+        				alt="{{slide.title}}"
+        				class="d-block w-100"
+        				loading="lazy"
+        				src="{{slide.src}}"
+      				/>
+      				<c-carousel-caption class="d-none d-md-block">
+        				<h1>{{slide.title}}</h1>
+        				<h3>{{slide.ex1}}</h3>
+        				<h3>{{slide.ex2}}</h3>
+        				<h3>{{slide.ex3}}</h3>
+        				<h3>{{slide.ex4}}</h3>
+        				<h3>{{slide.desc}}</h3>
+        				<h2>Pour plus d'informations, regarder en bas</h2>
+      				</c-carousel-caption>
+    			</c-carousel-item>
+  		</c-carousel-inner>
+ 		<c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+    		<c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
+	</c-carousel>
+</div>
+
+<div class="banner">
+<br><br>
+<youtube-player 
+  videoId="VL5Ab0T07e4" 
+  suggestedQuality="highres" 
+  [height]="350" 
+  [width]="300" 
+  [startSeconds]="4"
+  [endSeconds]="8">
+</youtube-player>
+
+<youtube-player 
+  videoId="bEv6CCg2BC8" 
+  suggestedQuality="highres" 
+  [height]="350" 
+  [width]="300" 
+  [startSeconds]="4"
+  [endSeconds]="8">
+</youtube-player>
+
+<youtube-player 
+  videoId="Hdc7Mw6BIEE" 
+  suggestedQuality="highres" 
+  [height]="350" 
+  [width]="300" 
+  [startSeconds]="4"
+  [endSeconds]="8">
+</youtube-player>
+
+<youtube-player 
+  videoId="H6mRkx1x77k" 
+  suggestedQuality="highres" 
+  [height]="350" 
+  [width]="300" 
+  [startSeconds]="4"
+  [endSeconds]="8">
+</youtube-player>
+
+<youtube-player 
+  videoId="axoeDmW0oAY" 
+  suggestedQuality="highres" 
+  [height]="300" 
+  [width]="300" 
+  [startSeconds]="4"
+  [endSeconds]="8">
+</youtube-player>
+
+<youtube-player 
+  videoId="_RlRDWO2jfg" 
+  suggestedQuality="highres" 
+  [height]="300" 
+  [width]="300" 
+  [startSeconds]="4"
+  [endSeconds]="8">
+</youtube-player>
+
+<youtube-player 
+  videoId="vcBig73ojpE" 
+  suggestedQuality="highres" 
+  [height]="300" 
+  [width]="300" 
+  [startSeconds]="4"
+  [endSeconds]="8">
+</youtube-player>
+<youtube-player 
+  videoId="roHQ3F7d9YQ" 
+  suggestedQuality="highres" 
+  [height]="300" 
+  [width]="300" 
+  [startSeconds]="4"
+  [endSeconds]="8">
+</youtube-player>
+
+</div>
