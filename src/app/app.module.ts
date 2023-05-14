@@ -22,6 +22,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ChartModule } from 'angular-highcharts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
+import { ProgramsComponent } from 'src/app/pages/programs/programs.component';
 import { ChatButtonComponent } from './sharepage/chatbutton/chatbutton.component';
 import { MenupageComponent } from './pages/menupage/menupage.component';
 import { ApiService } from './pages/login/api.service';
@@ -60,6 +62,22 @@ import { SousArticle4Component } from './pages/sousArticles/sous-article4/sous-a
 import { SousArticle5Component } from './pages/sousArticles/sous-article5/sous-article5.component';
 import { SousArticle6Component } from './pages/sousArticles/sous-article6/sous-article6.component';
 
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CarouselModule } from '@coreui/angular';
+
+import { LweightComponent } from 'src/app/pages/programs/lweight/lweight.component';
+import { LbeginnerComponent } from 'src/app/pages/programs/lweight/beginner/beginner.component';
+import { LintermediateComponent } from 'src/app/pages/programs/lweight/intermediate/intermediate.component';
+import { LheroComponent } from 'src/app/pages/programs/lweight/hero/hero.component';
+import { GmuscleComponent } from 'src/app/pages/programs/gmuscle/gmuscle.component';
+import { GbeginnerComponent } from 'src/app/pages/programs/gmuscle/beginner/beginner.component';
+import { GintermediateComponent } from 'src/app/pages/programs/gmuscle/intermediate/intermediate.component';
+import { GheroComponent } from 'src/app/pages/programs/gmuscle/hero/hero.component';
+import { GshreddedComponent } from 'src/app/pages/programs/gshredded/gshredded.component';
+import { GSbeginnerComponent } from 'src/app/pages/programs/gshredded/beginner/beginner.component';
+import { GSintermediateComponent } from 'src/app/pages/programs/gshredded/intermediate/intermediate.component';
+import { GSheroComponent } from 'src/app/pages/programs/gshredded/hero/hero.component';
+
 const routes = [
   {path: '', component: HomeComponent},
   {path: 'products', component: ProductsPagesComponent},
@@ -72,7 +90,20 @@ const routes = [
   {path: 'article/:title', component: ArticleComponent},
   {path: 'articles', component: ArticlesComponent},
   {path: 'chatbot',component:AngularBotComponent},
-  {path: 'todolist', component:TodolistComponent}
+  {path: 'todolist', component:TodolistComponent},
+  {path: 'programs', component: ProgramsComponent},
+  {path: 'programs/lweight', component: LweightComponent},
+  {path: 'programs/gmuscle', component: GmuscleComponent},
+  {path: 'programs/gshredded', component: GshreddedComponent},
+  {path: 'programs/lweight/beginner', component: LbeginnerComponent},
+  {path: 'programs/lweight/intermediate', component: LintermediateComponent},
+  {path: 'programs/lweight/hero', component: LheroComponent},
+  {path: 'programs/gmuscle/beginner', component: GbeginnerComponent},
+  {path: 'programs/gmuscle/intermediate', component: GintermediateComponent},
+  {path: 'programs/gmuscle/hero', component: GheroComponent},
+  {path: 'programs/gshredded/beginner', component: GSbeginnerComponent},
+  {path: 'programs/gshredded/intermediate', component: GSintermediateComponent},
+  {path: 'programs/gshredded/hero', component: GSheroComponent}
 ]
 
 @NgModule({
@@ -106,7 +137,20 @@ const routes = [
     SousArticle6Component,
     TodolistComponent,
     ProductsComponent,
-    ChatButtonComponent
+    ChatButtonComponent,
+    ProgramsComponent,
+    LweightComponent,
+    LbeginnerComponent,
+    LintermediateComponent,
+    LheroComponent,
+    GmuscleComponent,
+    GbeginnerComponent,
+    GintermediateComponent,
+    GheroComponent,
+    GshreddedComponent,
+    GSbeginnerComponent,
+    GSintermediateComponent,
+    GSheroComponent
   ],
   imports: [
     BrowserModule,
@@ -131,7 +175,10 @@ const routes = [
     MatRadioModule,
     MatSliderModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressBarModule,
+    CarouselModule,
+    ChartModule
   ],
   providers: [ApiService, AuthService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}, ChatService],
   bootstrap: [AppComponent]

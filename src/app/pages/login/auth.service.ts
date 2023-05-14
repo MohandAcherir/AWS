@@ -39,6 +39,7 @@ export class AuthService {
 
   loginUser(loginData: any){
     this.http.post<any>(this.path + '/login', loginData).subscribe((res: any) => {
+      console.log(res);
       this.saveToken(res.token)
     });
   }

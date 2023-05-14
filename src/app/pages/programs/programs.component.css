@@ -1,0 +1,92 @@
+.banner
+{
+    background-image: url('../../../assets/img/img1.jpg');
+    height: 700px;
+    background-position: center top;
+    background-size: cover;
+}
+
+.content
+{
+    top: 19%;
+    left: 20%;
+    position: absolute;
+}
+.content h1 
+{
+    color: #dce0ec;
+    font-size: 70px;
+    font-weight: normal;
+  
+}
+
+.content h2 
+{
+    color: #dce0ec;
+    font-size: 40px;
+    font-weight: lighter;
+  
+}
+
+
+.styled1 {
+    position: relative;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 92.2px;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #dce0ec;
+    border-radius: 0px;
+    background-color: #f9735b7d;
+    margin: 2px;
+    left: 200px;
+}
+
+.styled2{
+    position: relative;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 92px;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #dce0ec;
+    border-radius: 0px;
+    background-color: #f9735b7d;
+    margin: 2px;
+    left: 200px;
+}
+
+.styled3 {
+    position: relative;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 81.4px;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #dce0ec;
+    border-radius: 0px;
+    background-color: #f9735b7d;
+    margin: 2px;
+    left: 200px;
+}
+
+.styled1:hover {
+    background-color: #f9735b;
+}
+.styled2:hover {
+    background-color: #f9735b;
+}
+.styled3:hover {
+    background-color: #f9735b;
+}
+
+.styled1:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+.styled2:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+.styled3:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}

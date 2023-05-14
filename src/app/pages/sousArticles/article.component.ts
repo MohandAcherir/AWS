@@ -107,7 +107,7 @@ export class ArticleComponent implements OnInit {
 
     post() {
         this.apiService.postMessage({msg: this.postCommentaire, title: this.title, note: this.note})
-        location.reload()
+        location.reload();
         let bienvenue: string = "Votre commentaire a bien été publié !";
         this._snackBar.open(bienvenue, "Super !");
     }

@@ -2,6 +2,6 @@
 {
 	background-image: url('../../../assets/img/bannerimg.jpg');
    	height: 800px;
-    	background-position: center;
-    	background-size: contain;
+    background-position: center;
+	background-size: contain;
 }
